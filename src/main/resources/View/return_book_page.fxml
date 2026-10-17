@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ReturnBookPageController">
+   <children>
+      <Button fx:id="btnDashboard" layoutX="1.0" layoutY="45.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="39.0" prefWidth="193.0" text="Dashboard" />
+      <Line endX="100.0" endY="300.9999694824219" layoutX="94.0" layoutY="97.0" startX="100.0" startY="-98.00000762939453" />
+      <Label layoutX="8.0" layoutY="-2.0" text="Library System">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnAddBook" layoutY="86.0" mnemonicParsing="false" onAction="#btnAddBookOnAction" prefHeight="39.0" prefWidth="193.0" text="Add Book" />
+      <Button fx:id="btnAddMember" layoutX="1.0" layoutY="127.0" mnemonicParsing="false" onAction="#btnAddMemberOnAction" prefHeight="39.0" prefWidth="193.0" text="Add Member" />
+      <Button fx:id="btnManageMembers" layoutX="1.0" layoutY="168.0" mnemonicParsing="false" onAction="#btnManageMembersOnAction" prefHeight="39.0" prefWidth="193.0" text="Manage Members" />
+      <Button fx:id="btnIssueBooks" layoutY="210.0" mnemonicParsing="false" onAction="#btnIssueBooksOnAction" prefHeight="39.0" prefWidth="193.0" text="Issue Book" />
+      <Button fx:id="btnReturnBooks" layoutY="252.0" mnemonicParsing="false" onAction="#btnReturnBooksOnAction" prefHeight="39.0" prefWidth="193.0" text="Return book" />
+      <Button fx:id="btnBorrowingHistory" layoutX="1.0" layoutY="294.0" mnemonicParsing="false" onAction="#btnBorrowingHistoryOnAction" prefHeight="39.0" prefWidth="193.0" text="Burrowing History" />
+      <Button fx:id="btnLogout" layoutY="360.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="39.0" prefWidth="193.0" text="Logout" />
+      <Label layoutX="238.0" layoutY="38.0" text="Return Book Page">
+         <font>
+            <Font name="Bauhaus 93" size="43.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtSearchIssueBook" layoutX="203.0" layoutY="114.0" onAction="#txtSearchIssueBook" prefHeight="25.0" prefWidth="380.0" />
+      <Label layoutX="203.0" layoutY="87.0" text="Search Issued Book:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="203.0" layoutY="160.0" text="Member ID:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtMemberId" layoutX="203.0" layoutY="188.0" onAction="#txtMemberIdOnAction" prefHeight="25.0" prefWidth="157.0" />
+      <Label layoutX="387.0" layoutY="159.0" text="Member Name:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtMemberName" layoutX="387.0" layoutY="187.0" onAction="#txtMemberNameOnAction" prefHeight="25.0" prefWidth="203.0" />
+      <Button fx:id="btnReturnBook" layoutX="212.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnReturnBookOnAction" text="Return Book" />
+      <Button fx:id="btnClear" layoutX="319.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnClearOnAction" text="Clear" />
+   </children>
+</AnchorPane>
