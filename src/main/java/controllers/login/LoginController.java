@@ -1,9 +1,6 @@
 package controllers.login;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class LoginController {
     //LoginPageController loginPageController = new LoginPageController();
@@ -22,8 +19,15 @@ public class LoginController {
     public boolean checkUserNameandPassword(String userName, String password){
         String SQL = "SELECT * FROM users";
         try {
-            PreparedStatement preparedStatement =connection.prepareStatement(SQL);
-            preparedStatement.executeQuery();
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                String dbUserName = resultSet.getString("username");
+                String dbPassword = resultSet.getString("password");
+                if (userName.equals(dbUserName) && password.equals(dbPassword)){
+                    return true;
+                }
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
