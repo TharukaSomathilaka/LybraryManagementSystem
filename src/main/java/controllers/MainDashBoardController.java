@@ -55,7 +55,7 @@ public class MainDashBoardController {
     void btnAddBookOnAction(ActionEvent event) {
             try {
                 Parent root = FXMLLoader.load(
-                        getClass().getResource("/View/return_book_page.fxml")
+                        getClass().getResource("/View/add_book_page.fxml")
                 );
 
                 Stage stage = (Stage) btnAddBook.getScene().getWindow();

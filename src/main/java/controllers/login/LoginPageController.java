@@ -1,5 +1,5 @@
 
-package controllers;
+package controllers.login;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,10 +11,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 
 public class LoginPageController {
+   LoginController loginController = new LoginController();
 
     @FXML
     private Label Lable_1;
@@ -53,7 +53,7 @@ public class LoginPageController {
     @FXML
     void btnLoginOnAction(ActionEvent event) {
 
-        if (checkUserNameandPassword(txtUserName.getText(), txtPassword.getText())){
+        if (loginController.checkUserNameandPassword(txtUserName.getText(), txtPassword.getText())){
             Stage stage = new Stage();
             try {
                 stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/main_dashboard_page.fxml"))));
@@ -73,12 +73,6 @@ void lblIncorrectOnAction() {
 }
 
 
-    private boolean checkUserNameandPassword(String name, String password) {
-        if(name.equals("tharuka") && password.equals("1234")){
-            return true;
-        }
-        lblIncorrectOnAction();
-        return false;
-    }
+
 
 }
