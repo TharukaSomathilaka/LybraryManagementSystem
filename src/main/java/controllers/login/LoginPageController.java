@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -71,9 +72,17 @@ void lblIncorrectOnAction() {
 
 }
 
-
-
-
+    @FXML
+    public void txtPasswordOnAction(KeyEvent keyEvent) {
+        if (loginController.checkUserNameandPassword(txtUserName.getText(), txtPassword.getText())){
+            try {
+                mainDashboardStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/main_dashboard_page.fxml"))));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            mainDashboardStage.show();
+        }
+    }
 }
 
 //
