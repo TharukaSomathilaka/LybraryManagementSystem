@@ -1,6 +1,8 @@
 
-package controllers;
+package controllers.book;
 
+import controllers.Book;
+import controllers.LibraryData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +16,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class AddBookPageController {
+    AddBookController addBookController = new AddBookController();
 
     @FXML
     private Button btnAddBook;

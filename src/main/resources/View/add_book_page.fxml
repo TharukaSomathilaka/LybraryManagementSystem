@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddBookPageController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.book.AddBookPageController">
    <children>
       <Button fx:id="btnDashboard" layoutX="1.0" layoutY="47.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="39.0" prefWidth="193.0" text="Dashboard" />
       <Line endX="100.0" endY="300.9999694824219" layoutX="94.0" layoutY="99.0" startX="100.0" startY="-98.00000762939453" />
