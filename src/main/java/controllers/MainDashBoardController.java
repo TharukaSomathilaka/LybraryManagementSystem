@@ -176,12 +176,12 @@ public class MainDashBoardController {
     public void refreshDashboard() {
 
         // Get the total number of book copies from LibraryData
-        lblTotalBooks.setText(String.valueOf(LibraryData.getTotalBooks()));
+        //lblTotalBooks.setText(String.valueOf(LibraryData.getTotalBooks()));
 
         // Temporary sample values
-        lblTotalMembers.setText("0");
-        lblCurrentlyBorrowedBooks.setText("0");
-        lblOverDueBooks.setText("0");
+        //lblTotalMembers.setText("0");
+        //lblCurrentlyBorrowedBooks.setText("0");
+        //lblOverDueBooks.setText("0");
     }
 
 }

@@ -85,14 +85,3 @@ void lblIncorrectOnAction() {
     }
 }
 
-//
-//if (loginController.checkUserNameandPassword(txtUserName.getText(), txtPassword.getText())){
-//Stage stage = new Stage();
-//            try {
-//                    stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/main_dashboard_page.fxml"))));
-//        stage.show();
-//                ((Stage) btnLogin.getScene().getWindow()).close();
-//            } catch (IOException e) {
-//        throw new RuntimeException(e);
-//            }
-//                    }

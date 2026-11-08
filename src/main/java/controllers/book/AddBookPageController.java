@@ -1,8 +1,8 @@
 
 package controllers.book;
 
-import controllers.Book;
-import controllers.LibraryData;
+//import controllers.Book;
+//import controllers.LibraryData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -64,6 +64,7 @@ public class AddBookPageController {
     private TextField txtQuantity;
 
 
+
     @FXML
     void btnAddBookOnAction(ActionEvent event) {
 
@@ -77,11 +78,12 @@ public class AddBookPageController {
                 txtPublishedYear.getText().isEmpty() ||
                 txtQuantity.getText().isEmpty()) {
 
-            showMessage("Please fill in all fields.");
+            showMessage("fill all fields.");
             return;
         }
 
         try {
+
             int year = Integer.parseInt(txtPublishedYear.getText());
             int quantity = Integer.parseInt(txtQuantity.getText());
 
@@ -90,20 +92,33 @@ public class AddBookPageController {
                 return;
             }
 
-            Book book = new Book(
-                    isbn, title, author, category, year, quantity
+            // Send book details to AddBookController
+            addBookController.addBook(
+                    isbn,
+                    title,
+                    author,
+                    category,
+                    year,
+                    quantity
             );
-
-            LibraryData.books.add(book);
 
             showMessage("Book added successfully!");
 
+            // Clear all TextFields
             btnClearOnAction(event);
 
         } catch (NumberFormatException e) {
+
             showMessage("Please enter a valid year and quantity.");
+
+        } catch (RuntimeException e) {
+
+            e.printStackTrace();
+            showMessage("Failed to add book. Please check the database.");
+
         }
     }
+
 
 
     @FXML
