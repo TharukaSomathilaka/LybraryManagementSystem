@@ -1,6 +1,7 @@
 package controllers;
 
 import com.sun.javafx.stage.EmbeddedWindow;
+import db.DBConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,8 +13,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class MainDashBoardController {
+    Connection connection = DBConnection.getConnection();
 
     @FXML
     private Button btnAddBook;
@@ -159,7 +165,9 @@ public class MainDashBoardController {
     }
 
     @FXML
-    void lblTotalBooksOnAction(MouseEvent event) {
+    void lblTotalBooksOnAction() {
+//
+
 
     }
 
@@ -167,10 +175,50 @@ public class MainDashBoardController {
     void lblTotalMembersOnAction(MouseEvent event) {
 
     }
+    private void loadTotalBooks() {
+
+        try {
+            String sql = "SELECT SUM(quantity) AS total FROM book";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                int totalBooks = resultSet.getInt("total");
+
+                lblTotalBooks.setText(String.valueOf(totalBooks));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    private void loadTotalMembers() {
+
+        try {
+            String sql = "SELECT SUM(member_id) AS total FROM member";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                int totalMembers = resultSet.getInt("total");
+
+                lblTotalMembers.setText(String.valueOf(totalMembers));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     public void initialize() {
         refreshDashboard();
+        loadTotalBooks();
+        loadTotalMembers();
 
     }
     public void refreshDashboard() {

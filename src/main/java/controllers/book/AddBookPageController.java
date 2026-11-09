@@ -78,7 +78,7 @@ public class AddBookPageController {
                 txtPublishedYear.getText().isEmpty() ||
                 txtQuantity.getText().isEmpty()) {
 
-            showMessage("fill all fields.");
+            System.out.println("fill all fields.");
             return;
         }
 
@@ -88,7 +88,7 @@ public class AddBookPageController {
             int quantity = Integer.parseInt(txtQuantity.getText());
 
             if (quantity <= 0) {
-                showMessage("Quantity must be greater than zero.");
+                System.out.println("Quantity must be greater than zero.");
                 return;
             }
 
@@ -102,19 +102,19 @@ public class AddBookPageController {
                     quantity
             );
 
-            showMessage("Book added successfully!");
+            System.out.println("Book added successfully!");
 
             // Clear all TextFields
             btnClearOnAction(event);
 
         } catch (NumberFormatException e) {
 
-            showMessage("Please enter a valid year and quantity.");
+            System.out.println("Please enter a valid year and quantity.");
 
         } catch (RuntimeException e) {
 
             e.printStackTrace();
-            showMessage("Failed to add book. Please check the database.");
+            System.out.println("Failed to add book. Please check the database.");
 
         }
     }
