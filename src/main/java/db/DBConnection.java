@@ -10,13 +10,16 @@ public class DBConnection {
     private DBConnection(){
         {
             try {
-                connection = DriverManager.getConnection(
-                        "jdbc:mysql://localhost:3306/library_management_system",
-                        "root",
-                        "1234");
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
+                //if (connection == null || connection.isClosed()) {
+                    connection = DriverManager.getConnection(
+                            "jdbc:mysql://localhost:3306/library_management_system",
+                            "root",
+                            "1234");
+
+                } catch(SQLException e){
+                    throw new RuntimeException(e);
+                }
+
         }
 
     }

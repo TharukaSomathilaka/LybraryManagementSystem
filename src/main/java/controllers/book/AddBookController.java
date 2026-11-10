@@ -35,7 +35,7 @@ public class AddBookController {
             preparedStatement.executeUpdate();
 
             preparedStatement.close();
-            connection.close();
+            //connection.close();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
