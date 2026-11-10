@@ -5,10 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-    Connection connection = DBConnection.getConnection();
-    public static Connection getConnection(){
-        Connection connection;
-
+    public static DBConnection instance;
+    public static Connection connection;
+    private DBConnection(){
         {
             try {
                 connection = DriverManager.getConnection(
@@ -19,6 +18,16 @@ public class DBConnection {
                 throw new RuntimeException(e);
             }
         }
+
+    }
+
+    public static DBConnection getInstance(){
+        if (instance == null){
+            instance = new DBConnection();
+        }
+        return instance;
+    }
+    public Connection getConnection(){
         return connection;
     }
 }

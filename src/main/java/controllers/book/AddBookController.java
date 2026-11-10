@@ -9,6 +9,7 @@ import java.sql.SQLException;
 
 public class AddBookController {
 
+
     public void addBook(String bookId,
                         String title,
                         String author,
@@ -19,7 +20,7 @@ public class AddBookController {
         String SQL = "INSERT INTO book(book_id, book_title, author, category, published_year, quantity) VALUES (?,?,?,?,?,?)";
 
         try {
-            Connection connection = DBConnection.getConnection();
+            Connection connection = DBConnection.getInstance().getConnection();
 
             PreparedStatement preparedStatement =
                     connection.prepareStatement(SQL);

@@ -19,7 +19,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class MainDashBoardController {
-    Connection connection = DBConnection.getConnection();
+    Connection connection = DBConnection.getInstance().getConnection();
 
     @FXML
     private Button btnAddBook;
